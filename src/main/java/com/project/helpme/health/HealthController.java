@@ -23,4 +23,10 @@ public class HealthController {
 		
 		return "health.main";
 	}
+
+	@RequestMapping(value = "/health/healthreq.action", method = { RequestMethod.GET })
+	public String healthreq(HttpServletRequest req, HttpServletResponse resp, HttpSession session) {
+		
+		return "health.healthreq";
+	}
 }

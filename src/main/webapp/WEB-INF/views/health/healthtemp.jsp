@@ -63,7 +63,7 @@
 
 
 	<tiles:insertAttribute name="header" />
-	<section class="main-section" style="position: static;">
+	<section class="main-section" style="position: static; width: 897px;">
 		<div id="search">
 			<input type="text" id="searchbox" placeholder="어떤 분야의 전문가를 찾으시나요?">
 			<span> <button type="button" class="btn btn-default"
