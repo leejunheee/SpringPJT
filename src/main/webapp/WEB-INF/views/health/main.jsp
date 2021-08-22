@@ -23,8 +23,6 @@ section[data-name=popular-services] .card h4.card-title[data-v-34120883]
 	letter-spacing: -.025rem;
 }
 
-
-
 section[data-name=all-services] h2[data-v-34120883], section[data-name=popular-services] h2[data-v-34120883]
 	{
 	text-align: center;
@@ -52,15 +50,40 @@ section[data-name=all-services] h2[data-v-34120883], section[data-name=popular-s
 	margin-bottom: 1rem;
 	overflow: hidden;
 }
+
+#listbtn {
+	background-color: #01c7ae;
+	color: white;
+}
+
+#quickbtn {
+	float: right;
+	background-color: #01c7ae;
+	color: white;
+}
 </style>
 
+<div id="search">
+	<input type="text" id="searchbox" placeholder="어떤 분야의 전문가를 찾으시나요?">
+	<span>
+		<button type="button" class="btn btn-default" id="searchbtn">
+			<img
+				src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iI0Q4RDhEOCIgZmlsbC1vcGFjaXR5PSIwIiBkPSJNMCAwaDE4djE4SDB6Ii8+CiAgICAgICAgPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTE0Ljk0NCAxMy44ODdsNC44MzcgNC44MzhhLjc0Ny43NDcgMCAxIDEtMS4wNTYgMS4wNTZsLTQuODM4LTQuODM3YTguNDU4IDguNDU4IDAgMSAxIDEuMDU3LTEuMDU3em0tMS41MDUtLjU2M2E2Ljk2NCA2Ljk2NCAwIDEgMC0uMTE0LjExNC43NTUuNzU1IDAgMCAxIC4xMTQtLjExNHoiLz4KICAgIDwvZz4KPC9zdmc+Cg=="
+				class="search-icon" data-v-d914393c=""> 고수 찾기
+		</button>
+	</span>
+</div>
+
+<div>
+	<button id="listbtn" type="button" class="btn">요청 목록 보기</button>
+	<button id="quickbtn" type="button" value="빠른 요청 진행" class="btn">빠른 요청</button>
+</div>
 <section data-name="popular-services" data-v-34120883="">
 	<h2 data-v-34120883="">인기 서비스</h2>
 	<div class="row" data-v-34120883="">
 		<div class="col-md-6 col-lg-4 col-12" data-v-34120883="">
-			<a
-				href="/helpme/health/healthreq.action"
-				data-v-34120883="" class=""><div class="card" data-v-34120883="">
+			<a href="/helpme/health/healthreq.action" data-v-34120883="" class=""><div
+					class="card" data-v-34120883="">
 					<!---->
 					<!---->
 					<div class="card-body" data-v-34120883="">
@@ -76,9 +99,8 @@ section[data-name=all-services] h2[data-v-34120883], section[data-name=popular-s
 				</div></a>
 		</div>
 		<div class="col-md-6 col-lg-4 col-12" data-v-34120883="">
-			<a
-				href="/helpme/health/healthreq.action"
-				data-v-34120883="" class=""><div class="card" data-v-34120883="">
+			<a href="/helpme/health/healthreq.action" data-v-34120883="" class=""><div
+					class="card" data-v-34120883="">
 					<!---->
 					<!---->
 					<div class="card-body" data-v-34120883="">
@@ -94,9 +116,8 @@ section[data-name=all-services] h2[data-v-34120883], section[data-name=popular-s
 				</div></a>
 		</div>
 		<div class="col-md-6 col-lg-4 col-12" data-v-34120883="">
-			<a
-				href="/helpme/health/healthreq.action"
-				data-v-34120883="" class=""><div class="card" data-v-34120883="">
+			<a href="/helpme/health/healthreq.action" data-v-34120883="" class=""><div
+					class="card" data-v-34120883="">
 					<!---->
 					<!---->
 					<div class="card-body" data-v-34120883="">
@@ -112,9 +133,8 @@ section[data-name=all-services] h2[data-v-34120883], section[data-name=popular-s
 				</div></a>
 		</div>
 		<div class="col-md-6 col-lg-4 col-12" data-v-34120883="">
-			<a
-				href="/helpme/health/healthreq.action"
-				data-v-34120883="" class=""><div class="card" data-v-34120883="">
+			<a href="/helpme/health/healthreq.action" data-v-34120883="" class=""><div
+					class="card" data-v-34120883="">
 					<!---->
 					<!---->
 					<div class="card-body" data-v-34120883="">
@@ -130,9 +150,8 @@ section[data-name=all-services] h2[data-v-34120883], section[data-name=popular-s
 				</div></a>
 		</div>
 		<div class="col-md-6 col-lg-4 col-12" data-v-34120883="">
-			<a
-				href="/helpme/health/healthreq.action"
-				data-v-34120883="" class=""><div class="card" data-v-34120883="">
+			<a href="/helpme/health/healthreq.action" data-v-34120883="" class=""><div
+					class="card" data-v-34120883="">
 					<!---->
 					<!---->
 					<div class="card-body" data-v-34120883="">
@@ -148,9 +167,8 @@ section[data-name=all-services] h2[data-v-34120883], section[data-name=popular-s
 				</div></a>
 		</div>
 		<div class="col-md-6 col-lg-4 col-12" data-v-34120883="">
-			<a
-				href="/helpme/health/healthreq.action"
-				data-v-34120883="" class=""><div class="card" data-v-34120883="">
+			<a href="/helpme/health/healthreq.action" data-v-34120883="" class=""><div
+					class="card" data-v-34120883="">
 					<!---->
 					<!---->
 					<div class="card-body" data-v-34120883="">
@@ -220,6 +238,6 @@ section[data-name=all-services] h2[data-v-34120883], section[data-name=popular-s
 					
 				</div></a>
 		</div> -->
-		
+
 	</div>
 </section>

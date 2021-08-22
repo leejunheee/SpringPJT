@@ -64,15 +64,7 @@
 
 	<tiles:insertAttribute name="header" />
 	<section class="main-section" style="position: static; width: 897px;">
-		<div id="search">
-			<input type="text" id="searchbox" placeholder="어떤 분야의 전문가를 찾으시나요?">
-			<span> <button type="button" class="btn btn-default"
-				 id="searchbtn">
-				 <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDIwIDIwIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iI0Q4RDhEOCIgZmlsbC1vcGFjaXR5PSIwIiBkPSJNMCAwaDE4djE4SDB6Ii8+CiAgICAgICAgPHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTE0Ljk0NCAxMy44ODdsNC44MzcgNC44MzhhLjc0Ny43NDcgMCAxIDEtMS4wNTYgMS4wNTZsLTQuODM4LTQuODM3YTguNDU4IDguNDU4IDAgMSAxIDEuMDU3LTEuMDU3em0tMS41MDUtLjU2M2E2Ljk2NCA2Ljk2NCAwIDEgMC0uMTE0LjExNC43NTUuNzU1IDAgMCAxIC4xMTQtLjExNHoiLz4KICAgIDwvZz4KPC9zdmc+Cg==" class="search-icon" data-v-d914393c="">
-				 고수 찾기
-				 </button>
-			</span>
-		</div>
+		
 		<tiles:insertAttribute name="content" />
 		<hr>
 		<tiles:insertAttribute name="inner" />
