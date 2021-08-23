@@ -82,14 +82,15 @@ padding-bottom: 20px;
 </div>
 
 <div >
-	<button id="listbtn" type="button" class="btn">요청 목록 보기</button>
+	<button id="listbtn" type="button" class="btn" 
+	onclick="location.href='/helpme/health/healthlist.action'">요청 목록 보기</button>
 	<button id="quickbtn" type="button" value="빠른 요청 진행" class="btn">빠른 요청</button>
 </div>
 <section data-name="popular-services" data-v-34120883="">
 	<h2 data-v-34120883="" style="">인기 서비스</h2>
 	<div class="row" data-v-34120883="">
 		<div class="col-md-6 col-lg-4 col-12" data-v-34120883="">
-			<a href="/helpme/health/healthreq.action" data-v-34120883="" class=""><div
+			<a href="/helpme/health/healthreq.action?subcategory=헤어" data-v-34120883="" class=""><div
 					class="card" data-v-34120883="">
 					<!---->
 					<!---->
@@ -99,14 +100,14 @@ padding-bottom: 20px;
 						<div class="card-image"
 							style="background-image: url(https://dmmj3ljielax6.cloudfront.net/upload/service-bg/service_81dd394c-a9b3-4a7b-92f5-b58aa10fc2b2.png);"
 							data-v-34120883=""></div>
-						<h4 class="card-title" data-v-34120883="">헤어(컷/염색/펌)</h4>
+						<h4 class="card-title" data-v-34120883="">헤어</h4>
 					</div>
 					<!---->
 					<!---->
 				</div></a>
 		</div>
 		<div class="col-md-6 col-lg-4 col-12" data-v-34120883="">
-			<a href="/helpme/health/healthreq.action" data-v-34120883="" class=""><div
+			<a href="/helpme/health/healthreq.action?subcategory=퍼스널트레이닝" data-v-34120883="" class=""><div
 					class="card" data-v-34120883="">
 					<!---->
 					<!---->
@@ -123,7 +124,7 @@ padding-bottom: 20px;
 				</div></a>
 		</div>
 		<div class="col-md-6 col-lg-4 col-12" data-v-34120883="">
-			<a href="/helpme/health/healthreq.action" data-v-34120883="" class=""><div
+			<a href="/helpme/health/healthreq.action?subcategory=심리검사" data-v-34120883="" class=""><div
 					class="card" data-v-34120883="">
 					<!---->
 					<!---->
@@ -140,7 +141,7 @@ padding-bottom: 20px;
 				</div></a>
 		</div>
 		<div class="col-md-6 col-lg-4 col-12" data-v-34120883="">
-			<a href="/helpme/health/healthreq.action" data-v-34120883="" class=""><div
+			<a href="/helpme/health/healthreq.action?subcategory=네일" data-v-34120883="" class=""><div
 					class="card" data-v-34120883="">
 					<!---->
 					<!---->
@@ -157,7 +158,7 @@ padding-bottom: 20px;
 				</div></a>
 		</div>
 		<div class="col-md-6 col-lg-4 col-12" data-v-34120883="">
-			<a href="/helpme/health/healthreq.action" data-v-34120883="" class=""><div
+			<a href="/helpme/health/healthreq.action?subcategory=성인상담" data-v-34120883="" class=""><div
 					class="card" data-v-34120883="">
 					<!---->
 					<!---->
@@ -174,7 +175,7 @@ padding-bottom: 20px;
 				</div></a>
 		</div>
 		<div class="col-md-6 col-lg-4 col-12" data-v-34120883="">
-			<a href="/helpme/health/healthreq.action" data-v-34120883="" class=""><div
+			<a href="/helpme/health/healthreq.action?subcategory=필라테스" data-v-34120883="" class=""><div
 					class="card" data-v-34120883="">
 					<!---->
 					<!---->

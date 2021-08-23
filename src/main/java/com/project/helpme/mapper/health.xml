@@ -2,5 +2,14 @@
 
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="code">
+<mapper namespace="health">
+	<insert id="add" parameterType="com.project.helpme.health.HealthDTO">
+		insert into tblHealth (healthseq, subject, content, subcategory, regdate, viewcnt, requestcnt, matching, img, wishdate, address, price, id)
+					 values (seqHealth.nextval, #{subject}, #{content}, #{subcategory}, default, default, default, default, 'test' ,#{wishdate} , #{address} ,#{price} , 'hong' )
+	</insert>
+	
+	<select id="list" resultType="com.project.helpme.health.HealthDTO">
+		select * from tblHealth order by healthseq desc
+	</select>
+
 </mapper>
