@@ -13,7 +13,7 @@ section[data-name=popular-services] .card h4.card-title[data-v-34120883]
 	{
 	text-align: center;
 	margin: 1rem 0;
-	font-size: 1rem;
+	font-size: 1.7rem;
 }
 
 .h4, .swal2-container.sg-swal .swal2-header .swal2-title, h4 {
@@ -54,12 +54,19 @@ section[data-name=all-services] h2[data-v-34120883], section[data-name=popular-s
 #listbtn {
 	background-color: #01c7ae;
 	color: white;
+	border-color: #999;
+	
 }
 
 #quickbtn {
 	float: right;
 	background-color: #01c7ae;
 	color: white;
+	border-color: #999;
+}
+
+h2{
+padding-bottom: 20px;
 }
 </style>
 
@@ -74,12 +81,12 @@ section[data-name=all-services] h2[data-v-34120883], section[data-name=popular-s
 	</span>
 </div>
 
-<div>
+<div >
 	<button id="listbtn" type="button" class="btn">요청 목록 보기</button>
 	<button id="quickbtn" type="button" value="빠른 요청 진행" class="btn">빠른 요청</button>
 </div>
 <section data-name="popular-services" data-v-34120883="">
-	<h2 data-v-34120883="">인기 서비스</h2>
+	<h2 data-v-34120883="" style="">인기 서비스</h2>
 	<div class="row" data-v-34120883="">
 		<div class="col-md-6 col-lg-4 col-12" data-v-34120883="">
 			<a href="/helpme/health/healthreq.action" data-v-34120883="" class=""><div
