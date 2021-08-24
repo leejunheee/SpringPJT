@@ -60,6 +60,12 @@ public class HealthController {
 		
 		return "health.healthlist";
 	}
+	
+	@RequestMapping(value = "/health/healthview.action", method = { RequestMethod.GET })
+	public String healthview(HttpServletRequest req, HttpServletResponse resp, HttpSession session) {
+		
+		return "healthview";
+	}
 }
 
 

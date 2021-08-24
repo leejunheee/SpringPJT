@@ -58,6 +58,9 @@
 		
 	</definition>	
 	
+	<definition name="healthview" template="/WEB-INF/views/health/healthview.jsp"/>
+	
+	
 	<!-- 홈/가구 페이지에서 사용할 공통 템플릿 -->
 	<definition name="home.*" template="/WEB-INF/views/layout/template.jsp">
 	
