@@ -23,6 +23,17 @@ public class HealthDAO {
 		
 		return template.selectList("health.list");
 	}
+
+	public HealthDTO get(String healthseq) {
+		
+		return template.selectOne("health.get",healthseq);
+	}
+
+	public void del(String healthseq) {
+		
+		template.delete("health.del",healthseq);
+		
+	}
 	
 	
 }

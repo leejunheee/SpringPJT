@@ -34,7 +34,7 @@
 	border-radius: 4px;
 }
 
-#content {
+#content, #img {
 	border-radius: 4px;
 	width: 100%;
 	border: 1px solid #ccc;
@@ -43,7 +43,7 @@
 
 
 
-<form method="POST" action="/helpme/health/healthreqok.action">
+<form method="POST" action="/helpme/health/healthreqok.action" name="submitform">
 	<table class="table table-bordered">
 		<tr>
 			<th>요청 제목</th>
@@ -82,14 +82,33 @@
 			<td colspan="5"><textarea rows="10" cols="40" name="content"
 					id="content" required></textarea></td>
 		</tr>
+		<tr>
+			<th>첨부 URL</th>
+			<td colspan="5"><input type="text" id="img" name="img" ></td>
+		</tr>
 
 	</table>
 
 	<div>
-		<button type="submit" class="btn btn-default" style="font-size: 13px;">요청서
-			제출</button>
+		<button onclick="confirmModal()" type="submit"
+			class="btn btn-default" style="font-size: 13px;">요청서 제출</button>
 		<button type="button" class="btn btn-default" style="float: right;"
 			onclick="history.back();">돌아가기</button>
 	</div>
 
 </form>
+<script>
+	function confirmModal() {
+		if (confirm("요청서를 제출 하시겠습니까??") == true){    //확인
+
+		     document.submitform.submit();
+
+		 }else{   //취소
+
+		     return false;
+
+		 }
+	}
+</script>
+
+

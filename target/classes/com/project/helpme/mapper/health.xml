@@ -5,11 +5,18 @@
 <mapper namespace="health">
 	<insert id="add" parameterType="com.project.helpme.health.HealthDTO">
 		insert into tblHealth (healthseq, subject, content, subcategory, regdate, viewcnt, requestcnt, matching, img, wishdate, address, price, id)
-					 values (seqHealth.nextval, #{subject}, #{content}, #{subcategory}, default, default, default, default, 'test' ,#{wishdate} , #{address} ,#{price} , 'hong' )
+					 values (seqHealth.nextval, #{subject}, #{content}, #{subcategory}, default, default, default, default, #{img, jdbcType=VARCHAR} ,#{wishdate} , #{address} ,#{price} , 'hong' )
 	</insert>
 	
 	<select id="list" resultType="com.project.helpme.health.HealthDTO">
 		select * from tblHealth order by healthseq desc
 	</select>
+	
+	<select id="get" resultType="com.project.helpme.health.HealthDTO" parameterType="String">
+		select * from tblHealth where healthseq = #{healthseq}
+	</select>
 
+	<delete id="del" parameterType="String">
+		delete from tblHealth where healthseq = #{healthseq}
+	</delete>
 </mapper>

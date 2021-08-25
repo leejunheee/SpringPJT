@@ -9,6 +9,10 @@
 	left: -164px;
 	height: 900px;
 }
+
+.table{
+border-bottom: 1px #ddd solid;
+}
 </style>
 
 <table class="table">
@@ -25,8 +29,11 @@
 		<tr>
 			<td>${dto.healthseq}</td>
 
-			<td><a href="">${dto.subject}</a></td>
-			<td>${dto.requestcnt}</td>
+			<td>
+			<a onclick="fnModuleInfo('${dto.healthseq}')" style="cursor:pointer;" title="상세보기" >
+			${dto.subject}</a>
+			</td>
+			<td >${dto.requestcnt}</td>
 			<td>${dto.viewcnt}</td>
 			<td>${dto.subcategory}</td>
 			<td>${dto.regdate}</td>
@@ -37,9 +44,15 @@
 		</tr>
 	</c:forEach>
 </table>
+<div>
+
+	<button type="button" class="btn btn-default" style="float: right;"
+		onclick="location.href='/helpme/health/main.action';">돌아가기</button>
+</div>
+
 
 <!-- Moa Modal Button -->
-<a onclick="fnModuleInfo()"> 12312312312 </a>
+<!-- <a onclick="fnModuleInfo()">  </a> -->
 
 <!-- Moa Modal-->
 <div class="modal fade" id="MoaModal" tabindex="-1" role="dialog"
@@ -50,20 +63,15 @@
 	</div>
 </div>
 
-
-<div>
-
-	<button type="button" class="btn btn-default" style="float: right;"
-		onclick="history.back();">돌아가기</button>
-</div>
+<br><br><br><br>
 
 
 
 
 <script>
 	/*모달*/
-	function fnModuleInfo() {
-		$('#MoaModal .modal-content').load("/helpme/health/healthview.action");
+	function fnModuleInfo(seq) {
+		$('#MoaModal .modal-content').load("/helpme/health/healthview.action?healthseq=" + seq);
 		$('#MoaModal').modal();
 
 	}

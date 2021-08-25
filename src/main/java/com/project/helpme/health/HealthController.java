@@ -45,7 +45,9 @@ public class HealthController {
 		dao.add(dto);
 	
 		try {
-			resp.sendRedirect("/helpme/health/main.action");
+			
+			resp.sendRedirect("/helpme/health/healthlist.action");
+			
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -62,10 +64,32 @@ public class HealthController {
 	}
 	
 	@RequestMapping(value = "/health/healthview.action", method = { RequestMethod.GET })
-	public String healthview(HttpServletRequest req, HttpServletResponse resp, HttpSession session) {
+	public String healthview(HttpServletRequest req, HttpServletResponse resp, 
+			HttpSession session,String healthseq) {
+		
+		
+		HealthDTO dto = dao.get(healthseq);
+		
+		req.setAttribute("dto", dto);
 		
 		return "healthview";
 	}
+	
+	@RequestMapping(value = "/health/healthdel.action", method = { RequestMethod.GET })
+	public void healthdel(HttpServletRequest req, HttpServletResponse resp,
+			HttpSession session, String healthseq) {
+		
+		dao.del(healthseq);
+	
+		try {
+			
+			resp.sendRedirect("/helpme/health/healthlist.action");
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
 }
 
 
