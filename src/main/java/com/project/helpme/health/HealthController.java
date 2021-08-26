@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class HealthController {
@@ -88,6 +89,15 @@ public class HealthController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@RequestMapping(value = "/health/healthedit.action", method = { RequestMethod.POST })
+	@ResponseBody
+	public int healthedit(HttpServletRequest req, HttpServletResponse resp,
+			HttpSession session, HealthDTO dto) {
+		
+
+		return dao.edit(dto);
 	}
 	
 }

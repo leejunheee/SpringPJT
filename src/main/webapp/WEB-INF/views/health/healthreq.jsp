@@ -39,6 +39,16 @@
 	width: 100%;
 	border: 1px solid #ccc;
 }
+#submitbtn , #backbtn{
+	height: 40px;
+	width: 100px;
+	border: 1px solid #ccc;
+	font-size: 16px;
+}
+
+#backbtn{
+background-color: #d6e3e6;
+}
 </style>
 
 
@@ -73,7 +83,7 @@
 				min="0"></td>
 			<th>희망 날짜</th>
 			<td><input type="date" name="wishdate" class="form-control"></td>
-			<th>거주지</th>
+			<th>거주지(시/구)</th>
 			<td><input type="text" name="address" class="form-control"
 				required></td>
 		</tr>
@@ -90,9 +100,9 @@
 	</table>
 
 	<div>
-		<button onclick="confirmModal()" type="submit"
-			class="btn btn-default" style="font-size: 13px;">요청서 제출</button>
-		<button type="button" class="btn btn-default" style="float: right;"
+		<button onclick="confirmModal()" type="submit" id="submitbtn"
+			class="btn btn-default" >요청서 제출</button>
+		<button type="button" class="btn btn-default" style="float: right;" id="backbtn"
 			onclick="history.back();">돌아가기</button>
 	</div>
 

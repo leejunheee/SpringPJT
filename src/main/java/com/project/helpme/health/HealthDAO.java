@@ -34,6 +34,11 @@ public class HealthDAO {
 		template.delete("health.del",healthseq);
 		
 	}
+
+	public int edit(HealthDTO dto) {
+		
+		return template.update("health.edit",dto);
+	}
 	
 	
 }

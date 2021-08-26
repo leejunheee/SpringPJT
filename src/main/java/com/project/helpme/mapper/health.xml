@@ -19,4 +19,12 @@
 	<delete id="del" parameterType="String">
 		delete from tblHealth where healthseq = #{healthseq}
 	</delete>
+	
+	<update id="edit" parameterType="com.project.helpme.health.HealthDTO">
+		update tblhealth set
+			subject = #{subject},
+			content = #{content},
+			price = #{price}
+		where healthseq = #{healthseq}
+	</update>
 </mapper>

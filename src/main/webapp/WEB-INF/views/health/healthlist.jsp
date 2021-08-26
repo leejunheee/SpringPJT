@@ -7,7 +7,7 @@
 	top: 210px;
 	width: 925px;
 	left: -164px;
-	height: 900px;
+	height: 730px;
 }
 
 .table{

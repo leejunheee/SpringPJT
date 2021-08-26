@@ -55,7 +55,10 @@ section[data-name=all-services] h2[data-v-34120883], section[data-name=popular-s
 	background-color: #01c7ae;
 	color: white;
 	border-color: #999;
-	
+	height: 40px;
+	width: 140px;
+	border: 1px solid #ccc;
+	font-size: 16px;
 }
 
 #quickbtn {
@@ -63,10 +66,14 @@ section[data-name=all-services] h2[data-v-34120883], section[data-name=popular-s
 	background-color: #01c7ae;
 	color: white;
 	border-color: #999;
+	height: 40px;
+	width: 100px;
+	border: 1px solid #ccc;
+	font-size: 16px;
 }
 
-h2{
-padding-bottom: 20px;
+h2 {
+	padding-bottom: 20px;
 }
 </style>
 
@@ -81,17 +88,19 @@ padding-bottom: 20px;
 	</span>
 </div>
 
-<div >
-	<button id="listbtn" type="button" class="btn" 
-	onclick="location.href='/helpme/health/healthlist.action'">요청 목록 보기</button>
-	<button id="quickbtn" type="button" value="빠른 요청 진행" class="btn">빠른 요청</button>
+<div>
+	<button id="listbtn" type="button" class="btn"
+		onclick="location.href='/helpme/health/healthlist.action'">요청
+		목록 보기</button>
+	<button id="quickbtn" type="button" value="빠른 요청 진행" class="btn">빠른
+		요청</button>
 </div>
 <section data-name="popular-services" data-v-34120883="">
 	<h2 data-v-34120883="" style="">인기 서비스</h2>
 	<div class="row" data-v-34120883="">
 		<div class="col-md-6 col-lg-4 col-12" data-v-34120883="">
-			<a href="/helpme/health/healthreq.action?subcategory=헤어" data-v-34120883="" class=""><div
-					class="card" data-v-34120883="">
+			<a href="/helpme/health/healthreq.action?subcategory=헤어"
+				data-v-34120883="" class=""><div class="card" data-v-34120883="">
 					<!---->
 					<!---->
 					<div class="card-body" data-v-34120883="">
@@ -107,8 +116,8 @@ padding-bottom: 20px;
 				</div></a>
 		</div>
 		<div class="col-md-6 col-lg-4 col-12" data-v-34120883="">
-			<a href="/helpme/health/healthreq.action?subcategory=퍼스널트레이닝" data-v-34120883="" class=""><div
-					class="card" data-v-34120883="">
+			<a href="/helpme/health/healthreq.action?subcategory=퍼스널트레이닝"
+				data-v-34120883="" class=""><div class="card" data-v-34120883="">
 					<!---->
 					<!---->
 					<div class="card-body" data-v-34120883="">
@@ -124,8 +133,8 @@ padding-bottom: 20px;
 				</div></a>
 		</div>
 		<div class="col-md-6 col-lg-4 col-12" data-v-34120883="">
-			<a href="/helpme/health/healthreq.action?subcategory=심리검사" data-v-34120883="" class=""><div
-					class="card" data-v-34120883="">
+			<a href="/helpme/health/healthreq.action?subcategory=심리검사"
+				data-v-34120883="" class=""><div class="card" data-v-34120883="">
 					<!---->
 					<!---->
 					<div class="card-body" data-v-34120883="">
@@ -141,8 +150,8 @@ padding-bottom: 20px;
 				</div></a>
 		</div>
 		<div class="col-md-6 col-lg-4 col-12" data-v-34120883="">
-			<a href="/helpme/health/healthreq.action?subcategory=네일" data-v-34120883="" class=""><div
-					class="card" data-v-34120883="">
+			<a href="/helpme/health/healthreq.action?subcategory=네일"
+				data-v-34120883="" class=""><div class="card" data-v-34120883="">
 					<!---->
 					<!---->
 					<div class="card-body" data-v-34120883="">
@@ -158,8 +167,8 @@ padding-bottom: 20px;
 				</div></a>
 		</div>
 		<div class="col-md-6 col-lg-4 col-12" data-v-34120883="">
-			<a href="/helpme/health/healthreq.action?subcategory=성인상담" data-v-34120883="" class=""><div
-					class="card" data-v-34120883="">
+			<a href="/helpme/health/healthreq.action?subcategory=성인상담"
+				data-v-34120883="" class=""><div class="card" data-v-34120883="">
 					<!---->
 					<!---->
 					<div class="card-body" data-v-34120883="">
@@ -175,8 +184,8 @@ padding-bottom: 20px;
 				</div></a>
 		</div>
 		<div class="col-md-6 col-lg-4 col-12" data-v-34120883="">
-			<a href="/helpme/health/healthreq.action?subcategory=필라테스" data-v-34120883="" class=""><div
-					class="card" data-v-34120883="">
+			<a href="/helpme/health/healthreq.action?subcategory=필라테스"
+				data-v-34120883="" class=""><div class="card" data-v-34120883="">
 					<!---->
 					<!---->
 					<div class="card-body" data-v-34120883="">
