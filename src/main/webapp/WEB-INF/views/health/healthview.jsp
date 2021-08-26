@@ -57,12 +57,15 @@ cursor: pointer;
 	<button class="btn btn-default" type="button" data-dismiss="modal"
 		style="float: left;">닫기</button>
 	
+	<button class="btn btn-primary" type="button" data-dismiss="modal"
+		id="btnApply" onclick="location.href='/helpme/health/healthapply.action?healthseq=' +${dto.healthseq} ">신청서 작성(헬퍼용)</button>
 	<button class="btn btn-danger" type="button" data-dismiss="modal"
 		id="btnDel" onclick="delReq('${dto.healthseq}')">요청 취소(삭제하기)</button>
 </div>
 
 
 <script>
+	
 	
 	// 요청서 삭제 
 	function delReq(healthseq) {
