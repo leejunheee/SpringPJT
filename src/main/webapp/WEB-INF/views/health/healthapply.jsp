@@ -49,10 +49,14 @@
 #backbtn{
 background-color: #d6e3e6;
 }
+
+h2 {
+text-align: center;
+}
 </style>
 
 
-
+<h2>신청서 작성</h2>
 <form method="POST" action="/helpme/health/healthreqok.action" name="submitform">
 	<table class="table table-bordered">
 		<tr>
@@ -80,10 +84,7 @@ background-color: #d6e3e6;
 			<td colspan="5"><textarea rows="10" cols="40" name="content"
 					id="content" required></textarea></td>
 		</tr>
-		<tr>
-			<th>첨부 URL</th>
-			<td colspan="5"><input type="text" id="img" name="img" ></td>
-		</tr>
+	
 
 	</table>
 

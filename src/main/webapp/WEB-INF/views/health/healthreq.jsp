@@ -49,10 +49,11 @@
 #backbtn{
 background-color: #d6e3e6;
 }
+h2{
+text-align: center;}
 </style>
 
-
-
+<h2>요청서 작성</h2>
 <form method="POST" action="/helpme/health/healthreqok.action" name="submitform">
 	<table class="table table-bordered">
 		<tr>

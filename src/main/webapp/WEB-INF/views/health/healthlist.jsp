@@ -7,7 +7,7 @@
 	top: 210px;
 	width: 925px;
 	left: -164px;
-	height: 770px;
+	height: 850px;
 }
 
 .table{
@@ -31,7 +31,12 @@ border-bottom: 1px #ddd solid;
 
 			<td>
 			<a onclick="fnModuleInfo('${dto.healthseq}')" style="cursor:pointer;" title="상세보기" >
-			${dto.subject}</a>
+			${dto.subject}
+			<c:if test="${not empty dto.img }">
+				📷
+			</c:if>
+			
+			</a>
 			</td>
 			<td >${dto.requestcnt}</td>
 			<td>${dto.viewcnt}</td>

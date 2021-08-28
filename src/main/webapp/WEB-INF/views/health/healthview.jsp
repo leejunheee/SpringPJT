@@ -4,14 +4,20 @@
 
 <style>
 .image {
-    width: 100%;
-    height: 460px;
+    width: 200px;
+    height: 200px;
     background-repeat: no-repeat;
+ 	background-size: contain;
 }
 .emoji {
 font-size: 20px;
 margin-right: 5px;
 cursor: pointer;
+}
+
+h2{
+text-align: center;
+
 }
 </style>
 <!-- histoty Modal-->
@@ -31,7 +37,7 @@ cursor: pointer;
 					<th class="text-center" style="width: 130px;">제목</th>
 					<th class="text-center">내용</th>
 					<th class="text-center" style="width: 110px;">세부 카테고리</th>
-					<th class="text-center" style="width: 90px;">희망가격(원)</th>
+					<th class="text-center" style="width: 110px;">희망가격(원)</th>
 					<th class="text-center" style="width: 100px;">매칭 여부</th>
 					<th class="text-center" style="width: 65px;">수정</th>
 				</tr>
@@ -53,12 +59,46 @@ cursor: pointer;
 	</div>
 
 </div>
+
+<!-- 헬퍼의 신청서 리스트  -->
+<h2>신청서 목록</h2>
+<div class="modal-body">
+	<div class="table-responsive">
+		<div class="container"></div>
+		<table class="table table-hover" id="tbl">
+			<thead class="text-center">
+				<tr class="content">
+					<th class="text-center" style="width: 20px;">No</th>
+					<th class="text-center" style="width: 130px;">작성자</th>
+					<th class="text-center">내용</th>
+					<th class="text-center" style="width: 110px;">제안가격(원)</th>
+					<th class="text-center" style="width: 100px;">작성일자</th>
+				</tr>
+				<c:forEach items="${alist }" var="adto" varStatus="vs">
+					<tr class="content" >
+						<td class="text-center">${vs.count }</td>
+						<td class="text-center">${adto.id }</td>
+						<td class="text-center">${adto.content }</td>
+						<td class="text-center">${adto.helperprice }</td>
+						<td class="text-center">${adto.regdate }</td>
+					</tr>
+				</c:forEach>
+			</thead>
+
+		</table>
+	</div>
+
+</div>
 <div class="modal-footer">
 	<button class="btn btn-default" type="button" data-dismiss="modal"
 		style="float: left;">닫기</button>
 	
+	<!-- 헬퍼에게만 보이는 버튼  -->
 	<button class="btn btn-primary" type="button" data-dismiss="modal"
-		id="btnApply" onclick="location.href='/helpme/health/healthapply.action?healthseq=' +${dto.healthseq} ">신청서 작성(헬퍼용)</button>
+		id="btnApply" onclick="location.href='/helpme/health/healthapply.action?healthseq=' +${dto.healthseq}+'&subcategory='+${dto.subcategory}+'&subject='+${dto.subject} ">신청서 작성(헬퍼용)</button>
+		
+		
+		
 	<button class="btn btn-danger" type="button" data-dismiss="modal"
 		id="btnDel" onclick="delReq('${dto.healthseq}')">요청 취소(삭제하기)</button>
 </div>

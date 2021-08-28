@@ -39,6 +39,11 @@ public class HealthDAO {
 		
 		return template.update("health.edit",dto);
 	}
+
+	public List<HealthApplyDTO> alist(String healthseq) {
+		
+		return template.selectList("health.applylist",healthseq);
+	}
 	
 	
 }

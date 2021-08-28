@@ -58,6 +58,13 @@ public class HealthController {
 		
 		List<HealthDTO> list = dao.list();
 		
+		for (HealthDTO dto : list) {
+			String regdate = dto.getRegdate();
+			regdate = regdate.substring(2, 16);
+			dto.setRegdate(regdate);
+			
+		}
+		
 		req.setAttribute("list", list);
 		
 		return "health.healthlist";
@@ -71,7 +78,17 @@ public class HealthController {
 		
 		HealthDTO dto = dao.get(healthseq);
 		
+		List<HealthApplyDTO> alist = dao.alist(healthseq);
+		
+		for (HealthApplyDTO adto : alist) {
+			String regdate = adto.getRegdate();
+			regdate = regdate.substring(2, 16);
+			adto.setRegdate(regdate);
+			
+		}
+		
 		req.setAttribute("dto", dto);
+		req.setAttribute("alist", alist);
 		
 		return "healthview";
 	}
@@ -111,12 +128,12 @@ public class HealthController {
 	public String healthapply(HttpServletRequest req, HttpServletResponse resp, 
 			HttpSession session, String healthseq) {
 		
-		
-		
 
 		return "health.healthapply";
 	}
 }
+	
+	
 
 
 

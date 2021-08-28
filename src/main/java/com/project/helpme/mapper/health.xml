@@ -27,4 +27,8 @@
 			price = #{price}
 		where healthseq = #{healthseq}
 	</update>
+	
+	<select id="applylist" parameterType="String" resultType="com.project.helpme.health.HealthApplyDTO">
+		select * from tblhealthreq where healthseq = #{healthseq}
+	</select>
 </mapper>
