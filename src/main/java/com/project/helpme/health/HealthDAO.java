@@ -44,6 +44,21 @@ public class HealthDAO {
 		
 		return template.selectList("health.applylist",healthseq);
 	}
+
+	public void viewcnt(String healthseq) {
+		template.update("health.viewcnt",healthseq);
+		
+	}
+
+	public String applycnt(String healthseq) {
+		
+		return template.selectOne("health.applycnt", healthseq);
+	}
+
+	public void addapply(HealthApplyDTO dto) {
+		
+		template.insert("health.addapply",dto);
+	}
 	
 	
 }

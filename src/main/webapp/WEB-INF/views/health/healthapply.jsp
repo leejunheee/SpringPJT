@@ -57,40 +57,37 @@ text-align: center;
 
 
 <h2>신청서 작성</h2>
-<form method="POST" action="/helpme/health/healthreqok.action" name="submitform">
+<form method="POST" action="/helpme/health/healthapplyok.action" name="submitform">
 	<table class="table table-bordered">
 		<tr>
 			<th>요청 제목</th>
-			<td colspan="3"><input type="text" name="subject"
-				class="form-control" autocomplete="off" required></td>
+			<td colspan="3">${dto.subject }</td>
 
 			<th>하위카테고리</th>
-			<td><select id="subcategory" name="subcategory">
-				
-			</select></td>
+			<td>${dto.subcategory }</td>
 		</tr>
 		<tr>
-			<th>희망 금액</th>
-			<td><input type="number" name="price" class="form-control"
+			<th>견적 금액</th>
+			<td><input type="number" name="helperprice" class="form-control"
 				min="0"></td>
 			<th>희망 날짜</th>
-			<td><input type="date" name="wishdate" class="form-control"></td>
+			<td>${dto.wishdate }</td>
 			<th>거주지(시/구)</th>
-			<td><input type="text" name="address" class="form-control"
-				required></td>
+			<td>${dto.address }</td>
 		</tr>
 		<tr>
-			<th>요청내용</th>
+			<th>신청내용</th>
 			<td colspan="5"><textarea rows="10" cols="40" name="content"
 					id="content" required></textarea></td>
 		</tr>
 	
 
 	</table>
-
+	<input type="hidden" name="healthseq" value="${dto.healthseq }">
+	
 	<div>
 		<button onclick="confirmModal()" type="submit" id="submitbtn"
-			class="btn btn-default" >요청서 제출</button>
+			class="btn btn-default" >신청서 제출</button>
 		<button type="button" class="btn btn-default" style="float: right;" id="backbtn"
 			onclick="history.back();">돌아가기</button>
 	</div>
@@ -98,7 +95,7 @@ text-align: center;
 </form>
 <script>
 	function confirmModal() {
-		if (confirm("요청서를 제출 하시겠습니까??") == true){    //확인
+		if (confirm("신청서를 제출 하시겠습니까??") == true){    //확인
 
 		     document.submitform.submit();
 

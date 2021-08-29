@@ -22,8 +22,9 @@ border-bottom: 1px #ddd solid;
 		<th>요청수</th>
 		<th>조회수</th>
 		<th>세부 카테고리</th>
-		<th>작성일자</th>
+		<th>지역</th>
 		<th>매칭여부</th>
+		<th>작성일자</th>
 	</tr>
 	<c:forEach items="${list }" var="dto">
 		<tr>
@@ -41,11 +42,12 @@ border-bottom: 1px #ddd solid;
 			<td >${dto.requestcnt}</td>
 			<td>${dto.viewcnt}</td>
 			<td>${dto.subcategory}</td>
-			<td>${dto.regdate}</td>
+			<td>${dto.address}</td>
 			<td>
-			<c:if test="${dto.matching eq 'n' }"> 매칭 진행중 </c:if>
-			<c:if test="${dto.matching eq 'y' }"> 매칭 완료 </c:if>
+			<c:if test="${dto.matching eq 'n' }"> 진행중 </c:if>
+			<c:if test="${dto.matching eq 'y' }"> 완료 </c:if>
 			</td>
+			<td style="font-size: 12px;">${dto.regdate}</td>
 		</tr>
 	</c:forEach>
 </table>

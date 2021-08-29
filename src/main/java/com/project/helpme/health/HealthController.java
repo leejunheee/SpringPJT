@@ -54,7 +54,8 @@ public class HealthController {
 	
 	//요청서 목록 
 	@RequestMapping(value = "/health/healthlist.action", method = { RequestMethod.GET })
-	public String healthlist(HttpServletRequest req, HttpServletResponse resp, HttpSession session) {
+	public String healthlist(HttpServletRequest req, HttpServletResponse resp,
+			HttpSession session) {
 		
 		List<HealthDTO> list = dao.list();
 		
@@ -62,8 +63,15 @@ public class HealthController {
 			String regdate = dto.getRegdate();
 			regdate = regdate.substring(2, 16);
 			dto.setRegdate(regdate);
+
+			String applycnt = dao.applycnt(dto.getHealthseq());
+			dto.setRequestcnt(applycnt);
 			
+		
 		}
+		
+		//헬퍼의 요청 카운트  
+		HealthDTO dto = null;
 		
 		req.setAttribute("list", list);
 		
@@ -77,7 +85,12 @@ public class HealthController {
 		
 		
 		HealthDTO dto = dao.get(healthseq);
+	
+		String wishdate = dto.getWishdate();
+		wishdate = wishdate.substring(2,10);
+		dto.setWishdate(wishdate);
 		
+		//헬퍼의 신청서 리스트 
 		List<HealthApplyDTO> alist = dao.alist(healthseq);
 		
 		for (HealthApplyDTO adto : alist) {
@@ -86,6 +99,9 @@ public class HealthController {
 			adto.setRegdate(regdate);
 			
 		}
+		dao.viewcnt(healthseq);
+
+		
 		
 		req.setAttribute("dto", dto);
 		req.setAttribute("alist", alist);
@@ -128,8 +144,31 @@ public class HealthController {
 	public String healthapply(HttpServletRequest req, HttpServletResponse resp, 
 			HttpSession session, String healthseq) {
 		
-
+		HealthDTO dto = dao.get(healthseq);
+		
+		String wishdate = dto.getWishdate();
+		wishdate = wishdate.substring(2,10);
+		dto.setWishdate(wishdate);
+		
+		req.setAttribute("dto", dto);
+		
 		return "health.healthapply";
+	}
+	
+	@RequestMapping(value = "/health/healthapplyok.action", method = { RequestMethod.POST })
+	public void healthapplyok(HttpServletRequest req, HttpServletResponse resp, HttpSession session, HealthApplyDTO dto) {
+		
+		dao.addapply(dto);
+		
+		try {
+			
+			resp.sendRedirect("/helpme/health/healthlist.action");
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+
 	}
 }
 	

@@ -31,4 +31,25 @@
 	<select id="applylist" parameterType="String" resultType="com.project.helpme.health.HealthApplyDTO">
 		select * from tblhealthreq where healthseq = #{healthseq}
 	</select>
+	
+	<update id="viewcnt" parameterType="String">
+		update tblhealth set viewcnt = viewcnt + 1 where healthseq = #{healthseq}
+	</update>
+	
+	<select id="applycnt" parameterType="String" resultType="String">
+		select count(*) from tblhealthreq where healthseq = #{healthseq}
+	</select>
+	
+	<insert id="addapply" parameterType="com.project.helpme.health.HealthApplyDTO" >
+		insert into tblhealthreq 
+		values (seqHealthreq.nextval, #{helperprice}, #{content}, default, #{healthseq}, 'helper' )
+	</insert>
 </mapper>
+
+
+
+
+
+
+
+

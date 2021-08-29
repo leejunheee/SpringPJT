@@ -38,7 +38,7 @@ text-align: center;
 					<th class="text-center">내용</th>
 					<th class="text-center" style="width: 110px;">세부 카테고리</th>
 					<th class="text-center" style="width: 110px;">희망가격(원)</th>
-					<th class="text-center" style="width: 100px;">매칭 여부</th>
+					<th class="text-center" style="width: 100px;">희망 날짜</th>
 					<th class="text-center" style="width: 65px;">수정</th>
 				</tr>
 				<tr class="content" >
@@ -46,8 +46,7 @@ text-align: center;
 					<td class="text-center">${dto.content }</td>
 					<td class="text-center">${dto.subcategory }</td>
 					<td class="text-center">${dto.price }</td>
-					<td><c:if test="${dto.matching eq 'n' }"> 매칭 진행중 </c:if> <c:if
-							test="${dto.matching eq 'y' }"> 매칭 완료 </c:if></td>
+					<td class="text-center">${dto.wishdate }</td>
 					<td class="text-center"><span class="emoji" title="edit" onclick="edit('${dto.healthseq}');">🛠</span></td>
 				</tr>
 			</thead>
@@ -80,7 +79,7 @@ text-align: center;
 						<td class="text-center">${adto.id }</td>
 						<td class="text-center">${adto.content }</td>
 						<td class="text-center">${adto.helperprice }</td>
-						<td class="text-center">${adto.regdate }</td>
+						<td class="text-center" style="font-size: 12px;">${adto.regdate }</td>
 					</tr>
 				</c:forEach>
 			</thead>
@@ -91,11 +90,11 @@ text-align: center;
 </div>
 <div class="modal-footer">
 	<button class="btn btn-default" type="button" data-dismiss="modal"
-		style="float: left;">닫기</button>
+		style="float: left;" onclick="location.href='/helpme/health/healthlist.action'">닫기</button>
 	
 	<!-- 헬퍼에게만 보이는 버튼  -->
 	<button class="btn btn-primary" type="button" data-dismiss="modal"
-		id="btnApply" onclick="location.href='/helpme/health/healthapply.action?healthseq=' +${dto.healthseq}+'&subcategory='+${dto.subcategory}+'&subject='+${dto.subject} ">신청서 작성(헬퍼용)</button>
+		id="btnApply" onclick="apply('${dto.healthseq}')">신청서 작성(헬퍼용)</button>
 		
 		
 		
@@ -105,8 +104,9 @@ text-align: center;
 
 
 <script>
-	
-	
+	function apply(healthseq) {
+		location.href = '/helpme/health/healthapply.action?healthseq=' + healthseq
+	}
 	// 요청서 삭제 
 	function delReq(healthseq) {
 		if (confirm("정말 요청서를 삭제 하시겠습니까??") == true) { //확인
