@@ -59,6 +59,10 @@ public class HealthDAO {
 		
 		template.insert("health.addapply",dto);
 	}
+
+	public MemberDTO gethelper(String id) {
+		return template.selectOne("health.gethelper",id);
+	}
 	
 	
 }

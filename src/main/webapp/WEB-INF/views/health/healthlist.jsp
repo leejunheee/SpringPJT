@@ -4,10 +4,10 @@
 <style>
 .modal-content {
 	position: relative;
-	top: 210px;
-	width: 925px;
-	left: -164px;
-	height: 850px;
+    top: 210px;
+    width: 1125px;
+    left: -164px;
+    height: 1050px;
 }
 
 .table{

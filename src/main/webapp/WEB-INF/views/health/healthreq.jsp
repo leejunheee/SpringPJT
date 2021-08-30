@@ -39,22 +39,26 @@
 	width: 100%;
 	border: 1px solid #ccc;
 }
-#submitbtn , #backbtn{
+
+#submitbtn, #backbtn {
 	height: 40px;
 	width: 100px;
 	border: 1px solid #ccc;
 	font-size: 16px;
 }
 
-#backbtn{
-background-color: #d6e3e6;
+#backbtn {
+	background-color: #d6e3e6;
 }
-h2{
-text-align: center;}
+
+h2 {
+	text-align: center;
+}
 </style>
 
 <h2>요청서 작성</h2>
-<form method="POST" action="/helpme/health/healthreqok.action" name="submitform">
+<form method="POST" action="/helpme/health/healthreqok.action"
+	name="submitform">
 	<table class="table table-bordered">
 		<tr>
 			<th>요청 제목</th>
@@ -95,30 +99,35 @@ text-align: center;}
 		</tr>
 		<tr>
 			<th>첨부 URL</th>
-			<td colspan="5"><input type="text" id="img" name="img" ></td>
+			<td colspan="5"><input type="text" id="img" name="img"></td>
+		</tr>
+		<tr>
+			<th style="width: 95px;">파일 업로드 </th>
+			<td colspan="5"> <input type="file"
+				id="exampleInputFile"></td>
 		</tr>
 
 	</table>
 
 	<div>
 		<button onclick="confirmModal()" type="submit" id="submitbtn"
-			class="btn btn-default" >요청서 제출</button>
-		<button type="button" class="btn btn-default" style="float: right;" id="backbtn"
-			onclick="history.back();">돌아가기</button>
+			class="btn btn-default">요청서 제출</button>
+		<button type="button" class="btn btn-default" style="float: right;"
+			id="backbtn" onclick="history.back();">돌아가기</button>
 	</div>
 
 </form>
 <script>
 	function confirmModal() {
-		if (confirm("요청서를 제출 하시겠습니까??") == true){    //확인
+		if (confirm("요청서를 제출 하시겠습니까??") == true) { //확인
 
-		     document.submitform.submit();
+			document.submitform.submit();
 
-		 }else{   //취소
+		} else { //취소
 
-		     return false;
+			return false;
 
-		 }
+		}
 	}
 </script>
 
