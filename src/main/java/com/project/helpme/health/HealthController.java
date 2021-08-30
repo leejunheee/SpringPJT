@@ -165,8 +165,10 @@ public class HealthController {
 	@RequestMapping(value = "/health/chat.action", method = { RequestMethod.GET })
 	public String chat(HttpServletRequest req, HttpServletResponse resp, HttpSession session, String helpid,
 			String userid) {
-
-		req.setAttribute("helpid", helpid);
+		
+		MemberDTO dto = dao.gethelper(helpid);
+		
+		req.setAttribute("dto", dto);
 		req.setAttribute("userid", userid);
 
 		return "health.chat";

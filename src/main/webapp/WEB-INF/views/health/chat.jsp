@@ -14,8 +14,7 @@
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/resources/css/myapp.css" />
 
-<script
-	src="<%=request.getContextPath()%>/resources/js/jquery-3.6.0.js"></script>
+<script src="<%=request.getContextPath()%>/resources/js/jquery-3.6.0.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/bootstrap.js"></script>
 <script src="<%=request.getContextPath()%>/resources/js/cookie.js"></script>
 <style>
@@ -26,12 +25,11 @@ body {
 
 .container {
 	width: 500px;
-	
 }
 
-#chatbox{
-position: relative;
-left: -210px;
+#chatbox {
+	position: relative;
+	left: -210px;
 }
 
 #list {
@@ -43,46 +41,120 @@ left: -210px;
 h2 span {
 	color: tomato;
 }
+
 h2 {
 	text-align: center;
+}
 
+#helperinfo {
+	position: relative;
+	top: -510px;
+	right: -290px;
+}
+#box {
+height: 550px;
 }
 </style>
 
 </head>
 <body onload="msg();">
-<!-- 채팅창  -->
-	<div class="container" id="chatbox">
-		<h2 class="page-header">
-			<span>${helpid}</span> 님과 대화가 시작됩니다!
-		</h2>
+	<!-- 채팅창  -->
+	<div id="box">
+		<div class="container" id="chatbox">
+			<h2 class="page-header">
+				<span>${dto.name }</span> 님과 대화가 시작됩니다!
+			</h2>
 
-		<table class="table table-bordered">
-			<tr>
-				<td><input type="text" name="user" id="user"
-					class="form-control" value="${userid}"></td>
-				<td>
-					<button type="button" class="btn btn-default" id="btnConnect"
-						onclick="msg();">연결</button>
-					<button type="button" class="btn btn-default" id="btnDisconnect"
-						disabled>종료</button>
-				</td>
-			</tr>
-			<tr>
-				<td colspan="2"><div id="list"></div></td>
-			</tr>
-			<tr>
-				<td colspan="2"><input type="text" name="msg" id="msg"
-					placeholder="대화 내용을 입력하세요." class="form-control" disabled></td>
-			</tr>
-		</table>
+			<table class="table table-bordered">
+				<tr>
+					<td><input type="text" name="user" id="user"
+						class="form-control" value="${userid}"></td>
+					<td>
+						<button type="button" class="btn btn-default" id="btnConnect"
+							onclick="msg();">연결</button>
+						<button type="button" class="btn btn-default" id="btnDisconnect"
+							disabled>종료</button>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2"><div id="list"></div></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="text" name="msg" id="msg"
+						placeholder="대화 내용을 입력하세요." class="form-control" disabled></td>
+				</tr>
+			</table>
+
+		</div>
+
+		<!-- 헬퍼 정보 -->
+		<div class="container" id="helperinfo">
+			<div data-v-0338a199="" class="profile-section col-lg-auto col-12">
+				<div data-v-1fd279b0="" data-v-0338a199="" class="profile-body">
+					<div data-v-07a949b5="" data-v-1fd279b0="" class="profile-overview">
+						<div data-v-07a949b5="" class="info">
+							<h1 data-v-07a949b5="" style="color: tomato;">${dto.name }</h1>
+						</div>
+					</div>
+					<!---->
+					<section data-v-1fd279b0="" id="about">
+						<div data-v-55cc549a="" data-v-1fd279b0=""
+							class="profile-introduce sticky-nav">
+							<h2 data-v-55cc549a="">카테고리</h2>
+							<div data-v-55cc549a="" class="introduce">
+								<div data-v-62bd56ac="" data-v-55cc549a=""
+									class="collapsed-text-line">
+									<div data-v-62bd56ac="" class="wrapper" style="">
+										<p data-v-62bd56ac="">${dto.category }</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div data-v-55cc549a="" data-v-1fd279b0=""
+							class="profile-introduce sticky-nav">
+							<h2 data-v-55cc549a="">한줄소개</h2>
+							<div data-v-55cc549a="" class="introduce">
+								<div data-v-62bd56ac="" data-v-55cc549a=""
+									class="collapsed-text-line">
+									<div data-v-62bd56ac="" class="wrapper" style="">
+										<p data-v-62bd56ac="">DH Kim 고수의 사진 편집·보정, 스냅 촬영, 개인용 사진
+											촬영, 영상 편집, 기업/상업용 영상 촬영, 개인용 영상 촬영, 기업/상업용 사진 촬영 서비스</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div data-v-30e22708="" data-v-1fd279b0=""
+							class="profile-service-desc">
+							<h2 data-v-30e22708="">연락처</h2>
+							<div data-v-62bd56ac="" data-v-30e22708=""
+								class="collapsed-text-line">
+								<div data-v-62bd56ac="" class="wrapper" style="">
+									<p data-v-62bd56ac="">${dto.tel }</p>
+								</div>
+
+							</div>
+						</div>
+						<div data-v-30e22708="" data-v-1fd279b0=""
+							class="profile-service-desc">
+							<h2 data-v-30e22708="">이메일</h2>
+							<div data-v-62bd56ac="" data-v-30e22708=""
+								class="collapsed-text-line">
+								<div data-v-62bd56ac="" class="wrapper" style="">
+									<p data-v-62bd56ac="">${dto.email }</p>
+								</div>
+
+							</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
 
 	</div>
-	
-	<!-- 헬퍼 정보 -->
-	<div class="container" style="float: right;">
-	123
-	</div>
+			<button type="button" class="btn btn-default" onclick="history.back()">목록으로 돌아가기</button>
+			<button type="button"  style="float: right;" class="btn btn-primary"
+			onclick="location.href='/helpme/health/main.action'">메인 화면으로 가기</button>
+
 </body>
 
 

@@ -10,7 +10,7 @@ public class MemberDTO {
 	private String tel; 
 	private String address; 
 	private String email; 
-	private String subcategory; 
+	private String category; 
 	private String state; 
 	private String gender; 
 
