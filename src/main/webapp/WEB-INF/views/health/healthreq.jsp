@@ -61,7 +61,7 @@ h2 {
 	name="submitform">
 	<table class="table table-bordered">
 		<tr>
-			<th>요청 제목</th>
+			<th>요청 제목 </th>
 			<td colspan="3"><input type="text" name="subject"
 				class="form-control" autocomplete="off" required></td>
 
@@ -86,9 +86,9 @@ h2 {
 			<th>희망 금액</th>
 			<td><input type="number" name="price" class="form-control"
 				min="0"></td>
-			<th>희망 날짜</th>
+			<th style="width: 90px">희망 날짜</th>
 			<td><input type="date" name="wishdate" class="form-control"></td>
-			<th>거주지(시/구)</th>
+			<th style="width: 120px;">거주지(시/구)</th>
 			<td><input type="text" name="address" class="form-control"
 				required></td>
 		</tr>
@@ -98,13 +98,22 @@ h2 {
 					id="content" required></textarea></td>
 		</tr>
 		<tr>
-			<th>첨부 URL</th>
+			<th style="width: 135px;">이미지 첨부 URL</th>
 			<td colspan="5"><input type="text" id="img" name="img"></td>
 		</tr>
 		<tr>
-			<th style="width: 95px;">파일 업로드 </th>
-			<td colspan="5"> <input type="file"
-				id="exampleInputFile"></td>
+		<c:if test="${subcategory eq '퍼스널트레이닝' || subcategory eq '필라테스' }">
+			<th style="width: 95px;">비만도 계산</th>
+			<td colspan="5"> <a href="https://u-health.dobong.go.kr/hcal/fatness.asp" title="비만도 계산"
+			onclick="window.open(this.href, '_blank', 'width=1000px, height=1000px'); return false;" >
+			비만도 계산해보기</a>
+				</td>
+		</c:if>
+		<c:if test="${subcategory eq '심리검사' || subcategory eq '성인상담' }">
+			<th style="width: 95px;">심리검사 </th>
+			<td colspan="5"> <a href="https://trost.co.kr/service/test/" onclick="window.open(this.href, '_blank', 'width=1000px, height=1000px'); return false;"	 title="심리검사" >무료 심리검사 해보기</a>
+				</td>
+		</c:if>
 		</tr>
 
 	</table>
@@ -115,6 +124,7 @@ h2 {
 		<button type="button" class="btn btn-default" style="float: right;"
 			id="backbtn" onclick="history.back();">돌아가기</button>
 	</div>
+	<input type="hidden" name="id" value="${id}">
 
 </form>
 <script>

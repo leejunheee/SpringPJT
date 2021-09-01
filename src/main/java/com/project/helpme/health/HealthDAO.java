@@ -63,6 +63,11 @@ public class HealthDAO {
 	public MemberDTO gethelper(String id) {
 		return template.selectOne("health.gethelper",id);
 	}
+
+	public void selecthelper(String healthseq) {
+		template.update("health.selecthelper",healthseq);
+		
+	}
 	
 	
 }

@@ -22,10 +22,12 @@ h2 {
 
 .modal-content {
 	position: relative;
-    top: 210px;
-    width: 1125px;
-    left: -164px;
-    height: 1050px;
+	top: 210px;
+	width: 1125px;
+	left: -164px;
+	height: 1050px;
+	width: 1125px;
+	left: -164px;
 }
 </style>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -57,8 +59,10 @@ h2 {
 					<td class="text-center">${dto.subcategory }</td>
 					<td class="text-center">${dto.price }</td>
 					<td class="text-center">${dto.wishdate }</td>
+					<%--  <c:if test="${ dto.id == id }">  --%>
 					<td class="text-center"><span class="emoji" title="edit"
 						onclick="edit('${dto.healthseq}');">🛠</span></td>
+					<%-- 	</c:if> --%>
 				</tr>
 			</thead>
 
@@ -95,29 +99,28 @@ h2 {
 				<c:forEach items="${alist }" var="adto" varStatus="vs">
 					<tr class="content">
 						<td class="text-center">${vs.count }</td>
-						<td class="text-center">
-							<a style="cursor: pointer;" onclick="helperinfo('${adto.id}')">${adto.id }</a>
-						</td>
+						<td class="text-center"><a style="cursor: pointer;"
+							onclick="helperinfo('${adto.id}')">${adto.id }</a></td>
 						<td class="text-center">${adto.content }</td>
 						<td class="text-center">${adto.helperprice }</td>
 						<td class="text-center" style="font-size: 12px;">${adto.regdate }</td>
-						<td class="text-center">
-							<button type="button" class="btn btn-warning" value="채팅"
-								onclick="chat('${adto.id}','${dto.id }')">채팅하기</button>
-						</td>
+						<td class="text-center"><c:if test="${dto.matching eq 'n' && state == 1 }">
+								<button type="button" class="btn btn-warning" value="채팅"
+									onclick="chat('${adto.id}','${dto.id }','${dto.healthseq }')">채팅하기</button>
+							</c:if> <c:if test="${dto.matching eq 'y' }"> 채팅 불가 </c:if></td>
 					</tr>
-				
+
 				</c:forEach>
-			
+
 			</thead>
 		</table>
 	</div>
 
 </div>
 
-<div id="helperinfo"> 
+<div id="helperinfo">
 	<table class="table table-bordered" id="helpertable">
-		
+
 	</table>
 </div>
 
@@ -127,20 +130,23 @@ h2 {
 	<button class="btn btn-default" type="button" data-dismiss="modal"
 		style="float: left;"
 		onclick="location.href='/helpme/health/healthlist.action'">닫기</button>
+	<c:if test="${dto.matching eq 'n' }">
+		 <c:if test="${state == 2 }">  
+		<!-- 헬퍼에게만 보이는 버튼  -->
+		<button class="btn btn-primary" type="button" data-dismiss="modal"
+			id="btnApply" onclick="apply('${dto.healthseq}')">신청서
+			작성(헬퍼용)</button>
+		  </c:if> 
 
-	<!-- 헬퍼에게만 보이는 버튼  -->
-	<button class="btn btn-primary" type="button" data-dismiss="modal"
-		id="btnApply" onclick="apply('${dto.healthseq}')">신청서 작성(헬퍼용)</button>
-
-
-
-	<button class="btn btn-danger" type="button" data-dismiss="modal"
-		id="btnDel" onclick="delReq('${dto.healthseq}')">요청 취소(삭제하기)</button>
+		<c:if test="${ dto.id == id }"> 
+		<button class="btn btn-danger" type="button" data-dismiss="modal"
+			id="btnDel" onclick="delReq('${dto.healthseq}')">요청 취소(삭제하기)</button>
+		 </c:if> 
+	</c:if>
 </div>
 
 
 <script>
-
 	//이미지보기 클릭시 보여주기 
 	$(function() {
 		// run the currently selected effect
@@ -186,9 +192,9 @@ h2 {
 	});
 
 	//채팅 연결 
-	function chat(helpid, userid) {
+	function chat(helpid, userid, healthseq) {
 		location.href = '/helpme/health/chat.action?helpid=' + helpid
-				+ '&userid=' + userid
+				+ '&userid=' + userid + '&healthseq=' + healthseq
 
 	}
 
@@ -280,28 +286,33 @@ h2 {
 			}
 		})
 	}
-	
+
+	//헬퍼 정보 보기 
 	function helperinfo(id) {
-		
-		
-		$.ajax ({
-			type : 'GET',
-			url : '/helpme/health/helperinfo.action',
-			data : 'id=' + id, 
-			dataType : 'json',
-			success : function(data) {
-				
-				$('#helpertable').append('<tr><td>헬퍼 이름</td><td>번호</td><td>주소</td><td>이메일</td><td>성별</td></tr>'); 
-				$('#helpertable').append('<tr><td>' + data.name+'</td><td>' + data.tel+'</td><td>'+ data.address +'</td><td>'+ data.email+ '</td><td>' + data.gender +'</td></tr>'); 
-			},
-			error : function(a, b, c) {
-				console.log(a, b, c);
-			}
-		})
-		
-	} // helperinfo 
-	
-	
+
+		$.ajax({
+					type : 'GET',
+					url : '/helpme/health/helperinfo.action',
+					data : 'id=' + id,
+					dataType : 'json',
+					success : function(data) {
+
+						$('#helpertable')
+								.append(
+										'<tr><td>헬퍼 이름</td><td>번호</td><td>주소</td><td>이메일</td><td>성별</td></tr>');
+						$('#helpertable').append(
+								'<tr><td>' + data.name + '</td><td>' + data.tel
+										+ '</td><td>' + data.address
+										+ '</td><td>' + data.email
+										+ '</td><td>' + data.gender
+										+ '</td></tr>');
+					},
+					error : function(a, b, c) {
+						console.log(a, b, c);
+					}
+				})
+
+	} // helperinfo
 </script>
 
 

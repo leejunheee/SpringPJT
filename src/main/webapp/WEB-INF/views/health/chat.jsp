@@ -57,24 +57,24 @@ height: 550px;
 </style>
 
 </head>
-<body onload="msg();">
+<body onload="chat();">
 	<!-- 채팅창  -->
 	<div id="box">
 		<div class="container" id="chatbox">
 			<h2 class="page-header">
-				<span>${dto.name }</span> 님과 대화가 시작됩니다!
+				<span>${member.name }(${member.id })</span> 님과 대화가 시작됩니다! 
 			</h2>
 
 			<table class="table table-bordered">
 				<tr>
-					<td><input type="text" name="user" id="user"
+					<td><input type="hidden" name="user" id="user"
 						class="form-control" value="${userid}"></td>
-					<td>
+					<!-- <td>
 						<button type="button" class="btn btn-default" id="btnConnect"
-							onclick="msg();">연결</button>
+							>연결</button>
 						<button type="button" class="btn btn-default" id="btnDisconnect"
 							disabled>종료</button>
-					</td>
+					</td> -->
 				</tr>
 				<tr>
 					<td colspan="2"><div id="list"></div></td>
@@ -93,7 +93,7 @@ height: 550px;
 				<div data-v-1fd279b0="" data-v-0338a199="" class="profile-body">
 					<div data-v-07a949b5="" data-v-1fd279b0="" class="profile-overview">
 						<div data-v-07a949b5="" class="info">
-							<h1 data-v-07a949b5="" style="color: tomato;">${dto.name }</h1>
+							<h1 data-v-07a949b5="" style="color: tomato;">${member.name }(${member.id })</h1>
 						</div>
 					</div>
 					<!---->
@@ -105,20 +105,19 @@ height: 550px;
 								<div data-v-62bd56ac="" data-v-55cc549a=""
 									class="collapsed-text-line">
 									<div data-v-62bd56ac="" class="wrapper" style="">
-										<p data-v-62bd56ac="">${dto.category }</p>
+										<p data-v-62bd56ac="">${member.category }</p>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div data-v-55cc549a="" data-v-1fd279b0=""
 							class="profile-introduce sticky-nav">
-							<h2 data-v-55cc549a="">한줄소개</h2>
+							<h2 data-v-55cc549a="">주소 </h2>
 							<div data-v-55cc549a="" class="introduce">
 								<div data-v-62bd56ac="" data-v-55cc549a=""
 									class="collapsed-text-line">
 									<div data-v-62bd56ac="" class="wrapper" style="">
-										<p data-v-62bd56ac="">DH Kim 고수의 사진 편집·보정, 스냅 촬영, 개인용 사진
-											촬영, 영상 편집, 기업/상업용 영상 촬영, 개인용 영상 촬영, 기업/상업용 사진 촬영 서비스</p>
+										<p data-v-62bd56ac="">${member.address }</p>
 									</div>
 								</div>
 							</div>
@@ -129,7 +128,7 @@ height: 550px;
 							<div data-v-62bd56ac="" data-v-30e22708=""
 								class="collapsed-text-line">
 								<div data-v-62bd56ac="" class="wrapper" style="">
-									<p data-v-62bd56ac="">${dto.tel }</p>
+									<p data-v-62bd56ac="">${member.tel }</p>
 								</div>
 
 							</div>
@@ -140,7 +139,7 @@ height: 550px;
 							<div data-v-62bd56ac="" data-v-30e22708=""
 								class="collapsed-text-line">
 								<div data-v-62bd56ac="" class="wrapper" style="">
-									<p data-v-62bd56ac="">${dto.email }</p>
+									<p data-v-62bd56ac="">${member.email }</p>
 								</div>
 
 							</div>
@@ -151,7 +150,7 @@ height: 550px;
 		</div>
 
 	</div>
-			<button type="button" class="btn btn-default" onclick="history.back()">목록으로 돌아가기</button>
+			<button type="button" class="btn btn-warning" onclick="select(${healthseq});">헬퍼 최종 선택하기 </button>
 			<button type="button"  style="float: right;" class="btn btn-primary"
 			onclick="location.href='/helpme/health/main.action'">메인 화면으로 가기</button>
 
@@ -159,6 +158,23 @@ height: 550px;
 
 
 <script>
+
+	//헬퍼 최종 선택 
+	function select(healthseq) {
+		if (confirm("이 헬퍼를 최종 선택하시겠습니까?") == true) { //확인
+
+			location.href='/helpme/health/selecthelper.action?healthseq=' + healthseq 
+					
+
+		} else { //취소
+
+			return false;
+
+		}
+		
+	}
+
+
 	//채팅 서버 주소
 	let url = "ws://localhost:8030/helpme/health/chatserver";
 
@@ -168,7 +184,7 @@ height: 550px;
 	//연결하기
 	/* $('#btnConnect').click(function() { */
 
-	function msg() {
+	function chat() {
 		//유저명 확인
 		if ($('#user').val().trim() != '') {
 

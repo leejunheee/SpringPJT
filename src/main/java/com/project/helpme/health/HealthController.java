@@ -23,7 +23,16 @@ public class HealthController {
 	// 건강/미용 메인 페이지
 	@RequestMapping(value = "/health/main.action", method = { RequestMethod.GET })
 	public String main(HttpServletRequest req, HttpServletResponse resp, HttpSession session) {
-
+		
+		session = req.getSession();
+		session.setAttribute("id", "hong");
+		session.setAttribute("state", 1);
+		
+//		session.setAttribute("id", "helper");
+//		session.setAttribute("state", 2);
+//		session.setAttribute("subcategory", "네일");
+		
+		
 		return "health.main";
 	}
 
@@ -33,7 +42,9 @@ public class HealthController {
 
 		// 메인에서 카테고리 이미지 클릭시 넘어오는 매개변수
 		req.setAttribute("subcategory", subcategory);
-
+		
+		session = req.getSession();
+		
 		return "health.healthreq";
 	}
 
@@ -57,6 +68,8 @@ public class HealthController {
 	@RequestMapping(value = "/health/healthlist.action", method = { RequestMethod.GET })
 	public String healthlist(HttpServletRequest req, HttpServletResponse resp, HttpSession session) {
 
+		session= req.getSession();
+		
 		List<HealthDTO> list = dao.list();
 
 		for (HealthDTO dto : list) {
@@ -82,7 +95,10 @@ public class HealthController {
 	public String healthview(HttpServletRequest req, HttpServletResponse resp, HttpSession session, String healthseq) {
 
 		HealthDTO dto = dao.get(healthseq);
+		session = req.getSession();
+		
 
+		
 		String wishdate = dto.getWishdate();
 		wishdate = wishdate.substring(2, 10);
 		dto.setWishdate(wishdate);
@@ -135,7 +151,9 @@ public class HealthController {
 	public String healthapply(HttpServletRequest req, HttpServletResponse resp, HttpSession session, String healthseq) {
 
 		HealthDTO dto = dao.get(healthseq);
-
+		session = req.getSession();
+		
+		
 		String wishdate = dto.getWishdate();
 		wishdate = wishdate.substring(2, 10);
 		dto.setWishdate(wishdate);
@@ -163,12 +181,13 @@ public class HealthController {
 
 	// 헬퍼와 채팅
 	@RequestMapping(value = "/health/chat.action", method = { RequestMethod.GET })
-	public String chat(HttpServletRequest req, HttpServletResponse resp, HttpSession session, String helpid,
-			String userid) {
+	public String chat(HttpServletRequest req, HttpServletResponse resp,
+			HttpSession session, String helpid,	String userid, String healthseq) {
 		
-		MemberDTO dto = dao.gethelper(helpid);
+		MemberDTO member = dao.gethelper(helpid);
 		
-		req.setAttribute("dto", dto);
+		req.setAttribute("healthseq", healthseq);
+		req.setAttribute("member", member);
 		req.setAttribute("userid", userid);
 
 		return "health.chat";
@@ -184,5 +203,31 @@ public class HealthController {
 
 		return dao.gethelper(id);
 	}
+	
+	//헬퍼 최종선택 
+	@RequestMapping(value = "/health/selecthelper.action", method = { RequestMethod.GET })
+	public void selecthelper(HttpServletRequest req, HttpServletResponse resp, 
+			HttpSession session, String healthseq) {
+
+		dao.selecthelper(healthseq);
+		
+		try {
+
+			resp.sendRedirect("/helpme/health/healthlist.action");
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		
+	}
 
 }
+
+
+
+
+
+
+
+

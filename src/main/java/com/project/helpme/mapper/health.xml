@@ -7,7 +7,9 @@
 	<!-- 신청서 작성  -->
 	<insert id="add" parameterType="com.project.helpme.health.HealthDTO">
 		insert into tblHealth (healthseq, subject, content, subcategory, regdate, viewcnt, requestcnt, matching, img, wishdate, address, price, id)
-					 values (seqHealth.nextval, #{subject}, #{content}, #{subcategory}, default, default, default, default, #{img, jdbcType=VARCHAR} ,#{wishdate} , #{address} ,#{price} , 'hong' )
+					 values (seqHealth.nextval, #{subject}, #{content}, #{subcategory},
+					  default, default, default, default, #{img, jdbcType=VARCHAR} ,#{wishdate} ,
+					   #{address} ,#{price} , #{id} )
 	</insert>
 	
 	<!-- 신청서 목록 -->
@@ -52,13 +54,20 @@
 	<!-- 헬퍼 신청서 추가  -->
 	<insert id="addapply" parameterType="com.project.helpme.health.HealthApplyDTO" >
 		insert into tblhealthreq 
-		values (seqHealthreq.nextval, #{helperprice}, #{content}, default, #{healthseq}, 'helper' )
+		values (seqHealthreq.nextval, #{helperprice}, #{content}, default, #{healthseq}, #{id} )
 	</insert>
 	
 	<!-- 헬퍼 상세정보  -->
 	<select id="gethelper" parameterType="String" resultType="com.project.helpme.health.MemberDTO">
 		select * from tblMember where id = #{id}
 	</select>
+	
+	<!-- 헬퍼 최종 선택  -->
+	<update id="selecthelper" parameterType="String">
+		update tblhealth set
+			matching = 'y'
+		where healthseq = #{healthseq}
+	</update>
 </mapper>
 
 

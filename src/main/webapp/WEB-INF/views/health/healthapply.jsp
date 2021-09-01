@@ -84,6 +84,7 @@ text-align: center;
 
 	</table>
 	<input type="hidden" name="healthseq" value="${dto.healthseq }">
+	<input type="hidden" name="id" value="${id }">
 	
 	<div>
 		<button onclick="confirmModal()" type="submit" id="submitbtn"
