@@ -77,7 +77,7 @@ body {
 	height: 28px;
 	width: auto;
 	display: block;
-	filter: brightness(10%);
+	filter: brightness(100%);
 	-webkit-transition: all 0.3s ease-out;
 	transition: all 0.3s ease-out;
 }
@@ -636,7 +636,7 @@ body.dark .logo img {
 				<nav class="navbar navbar-expand-md navbar-light">
 
 					<a class="navbar-brand" href="https://front.codes/" target="_blank"><img
-						src="https://assets.codepen.io/1462889/fcy.png" alt=""></a>
+						src="/helpme/resources/images/logo.png" alt=""></a>
 
 					<button class="navbar-toggler" type="button" data-toggle="collapse"
 						data-target="#navbarSupportedContent"

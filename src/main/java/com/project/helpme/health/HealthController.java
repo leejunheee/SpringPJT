@@ -26,12 +26,11 @@ public class HealthController {
 		
 		session = req.getSession();
 		session.setAttribute("id", "hong");
-		session.setAttribute("state", 1);
-		
+		session.setAttribute("state", "1");
+//		
 //		session.setAttribute("id", "helper");
 //		session.setAttribute("state", 2);
-//		session.setAttribute("subcategory", "네일");
-		
+//		
 		
 		return "health.main";
 	}

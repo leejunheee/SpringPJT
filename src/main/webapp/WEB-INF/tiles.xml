@@ -60,8 +60,6 @@
 	
 	<!-- 요청서 상세보기 모달페이지  -->
 	<definition name="healthview" template="/WEB-INF/views/health/healthview.jsp"/>
-	<!-- 헬퍼 정보 상세보기 모달 페이지 -->
-	<definition name="helperinfo" template="/WEB-INF/views/health/helperinfo.jsp"/>
 	
 	
 	<!-- 홈/가구 페이지에서 사용할 공통 템플릿 -->

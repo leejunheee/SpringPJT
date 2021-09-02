@@ -28,7 +28,7 @@
 	</tr>
 	<c:forEach items="${list }" var="dto">
 		<!-- 헬퍼인 경우 본인 하위카테고리만 확인 가능 -->
-		<c:if test="${state == 2 && subcategory eq dto.subcategory }">
+		<c:if test="${state == 2 }">
 			<tr>
 				<td>${dto.healthseq}</td>
 
@@ -49,7 +49,7 @@
 			</tr>
 		</c:if>
 		<!-- 일반 사용자 + 본인이 작성한 글 조회 -->
-		<c:if test="${state ==1 && id eq dto.id  }">
+		<c:if test="${state == 1 && id eq dto.id  }">
 			<tr>
 				<td>${dto.healthseq}</td>
 
